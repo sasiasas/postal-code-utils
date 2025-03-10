@@ -9,26 +9,31 @@ export type ProcessingQueueItem = {
 	regionObj: RegionData;
 };
 
-export interface LookupData {
+export type LookupData = {
 	postalCodeMap: {
 		[postalCode: string]: string;
 	};
 	regions: {
 		[code: string]: string[];
 	};
-}
+};
 
-export interface PostalCodeData {
+export type PostalCodeData = {
 	rawData: RegionData;
 	postalCodeLookup: LookupData;
-}
+};
 
-export interface RegionData {
+export type RegionData = {
 	[key: string]: RegionData | string[];
-}
+};
 
-export interface FileCacheEntry<T> {
+export type FileCacheEntry<T> = {
 	mtime: Date;
 	data: T;
 	size: number;
-}
+};
+
+export type PostalCodeUtilsConfig = {
+	directory?: string;
+	defaultCountry?: string;
+};
